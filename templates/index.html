@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Ambil Komentar YouTube</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background: #f4f4f9;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 10px 15px;
+      border: none;
+      background: #007BFF;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    ul {
+      margin-top: 20px;
+    }
+
+    li {
+      background: #eee;
+      margin: 5px 0;
+      padding: 8px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Ambil Komentar YouTube</h2>
+    <form method="POST" action="/get_comments" style="display: flex; align-items: center; gap: 15px;">
+      <input type="text" name="url" placeholder="Masukkan link YouTube" required>
+      <button type="submit">Ambil Komentar</button>
+    </form>
+
+    {% if comments %}
+    <h3>Hasil Komentar:</h3>
+    <ul>
+      {% for c in comments %}
+      <li>{{ c }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</body>
+
+</html>
